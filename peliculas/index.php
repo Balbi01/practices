@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelCorn</title>
+            <!--íconos de font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <!--css local-->
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+
+<body>
+
+    <div class ="wrapper">
+        <!--logo-->
+        <div class="logo">
+            <div class="container">
+               <!-- <img src="./images/logo.png" alt="logo.png">-->
+                <p>Reel<span>Corn.</span></p>
+            </div>
+        </div>
+        <!--fin logo-->
+        
+        <!--barra de búsqueda-->
+        <div class="search-container">
+            <div class="search-element">
+                <h3>Buscar película:</h3>
+                <input type="text" class ="form-control"
+                placeholder="Buscar títulos:  " id="movie-search-box" onkeyup="findMovies()">
+
+                <div class="search-list" id="search-list">
+                    <!--lista-->
+                   <!--  <div class="search-list-item">
+                        <div class="search-item-thumbnail">
+                            <img src = "./images/cover-1.jpg">
+                        </div>
+                        <div class="search-item-info">
+                            <h3>Avengers Infinity War</h3>
+                            <p>2018</p>
+                        </div>
+                    </div> -->
+                    
+                </div>
+            </div>
+        </div>
+        <!--fin barra de búsqueda-->
+        <!-- contenedor de resultados -->
+        <div class = "container">
+            <div class = "result-container">
+                <div class = "result-grid" id = "result-grid">
+                    <!-- información de la película -->
+                   <!--  <div class = "movie-poster">
+                        <img src ="./images/cover-1.jpg" alt = "movie-poster">
+                    </div>
+                    <div class = "movie-info">
+                        <h3 class = "movie-title">Avengers Infinity War</h3>
+                        <ul class = "movie-misc-info">
+                            <li class = "year">Año: 2018</li>
+                            <li class = "rated">Ratings: PG-13</li>
+                            <li class = "released">Estreno: 27 de Abril de 2018</li>
+                        </ul>
+                        <p class = "genre"><b>Género:</b> Acción, Aventura, Comedia, Suspenso</p>
+                        <p class = "writer"><b>Escritores:</b> Los Hermanos Russo</p>
+                        <p class = "actors"><b>Actores:</b> Robert Downey Jr, Chris Evans, Tom Holland, Mark Ruffalo, Bennedict Cumberbacth</p>
+                        <p class = "plot"><b>Sinopsis:</b>El todopoderoso Thanos ha despertado con la promesa de arrasar con todo a su paso, portando el Guantelete del Infinito, que le confiere un poder incalculable. Los únicos capaces de pararle los pies son los Vengadores y el resto de superhéroes de la galaxia, que deberán estar dispuestos a sacrificarlo todo por un bien mayor. Capitán América e Ironman deberán limar sus diferencias, Black Panther apoyará con sus tropas desde Wakanda, Thor y los Guardianes de la Galaxia e incluso Spider-Man se unirán antes de que los planes de devastación y ruina pongan fin al universo. ¿Serán capaces de frenar el avance del titán del caos?</p>
+                        <p class ="languaje"><b>Idioma:</b> Inglés </p>
+                        <p class ="awards"><b><i class = "fasfa-award"></i></b>Nominada a 1 Oscar</p>
+                    </div>     -->
+                </div>
+            </div>
+        </div>
+        <!-- fin contenedor de resultados -->
+    </div>
+
+
+
+     <!--js de la app-->
+    <script src="script.js"></script>    
+</body>
+</html>
