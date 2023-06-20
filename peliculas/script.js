@@ -61,7 +61,7 @@ function loadMovieDetails(){
             movieSearchBox.value = " ";
             const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=8efb52d2`);
             const movieDetails = await result.json();
-            console.log(movieDetails);
+            /* console.log(movieDetails); */
            displayMovieDetails(movieDetails);
         });
     });
@@ -86,6 +86,104 @@ function displayMovieDetails(details){
         <p class ="languaje"><b>Idioma: </b> ${details.Languaje} </p>
         <p class ="awards"><b>🏆Premios: </i></b>${details.Awards}</p>
     </div>    
-    
+        
     `;
+    dataMovies(details)
+    
 }
+  document.getElementById("saveButton").addEventListener("click", saveData);
+
+let mtitle, myear, mrated, mreleased, mgenre, mwriter, mactors, mplot, mlanguaje, mawards;
+
+function dataMovies(details) {
+  mtitle = details.Title;
+  myear = details.Year;
+  mrated = details.Rated;
+  mreleased = details.Released;
+  mgenre = details.Genre;
+  mwriter = details.Writer;
+  mactors = details.Actors;
+  mplot = details.Plot;
+  mlanguaje = details.Languaje;
+  mawards = details.Awards;
+}
+
+function saveData() {
+  let data = {
+    title: mtitle,
+    year: myear,
+    rated: mrated,
+    released: mreleased,
+    genre: mgenre,
+    writer: mwriter,
+    actors: mactors,
+    plot: mplot,
+    languaje: mlanguaje,
+    awards: mawards
+  };
+
+  fetch('post.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(result => {
+      console.log(result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+/* document.getElementById("saveButton").addEventListener("click", saveData);
+
+function dataMovies(details){
+    let mtitle = details.Title;
+    let myear = details.Year;
+    let mrated = details.Rated;
+    let mreleased = details.Released;
+    let mgenre = details.Genre;
+    let mwriter = details.Writer;
+    let mactors = details.Actors;
+    let mplot = details.Plot;
+    let mlanguaje =details.Languaje;
+    let mawards = details.Awards;
+
+  }
+
+  document.getElementById("saveButton").addEventListener("click", saveData());
+
+  function saveData(){
+    let data = {
+        title: mtitle,
+        year: myear,
+        rated: mrated,
+        released: mreleased,
+        genre: mgenre,
+        writer: mwriter,
+        actors: mactors,
+        plot: mplot,
+        languaje: mlanguaje,
+        awards: mawards
+    };
+
+    fetch('post.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    })
+  }
+ */
