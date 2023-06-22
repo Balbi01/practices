@@ -55,7 +55,7 @@ function loadMovieDetails(){
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
     searchListMovies.forEach(movie => {
         movie.addEventListener('click', async () => {
-            console.log(movie.dataset.id);
+            /* console.log(movie.dataset.id); */
             /* Esconder los resultados al dar click en la película */
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = " ";
@@ -86,104 +86,57 @@ function displayMovieDetails(details){
         <p class ="languaje"><b>Idioma: </b> ${details.Languaje} </p>
         <p class ="awards"><b>🏆Premios: </i></b>${details.Awards}</p>
     </div>    
-        
-    `;
-    dataMovies(details)
+    `;    
+
+    document.getElementById("saveButton").addEventListener("click", saveData);
+
+    function saveData() {
+      let mtitle, myear, mrated, mreleased, mgenre, mwriter, mactors, mplot, mlanguaje, mawards;
     
-}
-  document.getElementById("saveButton").addEventListener("click", saveData);
+      mtitle = details.Title;
+      myear = details.Year;
+      mrated = details.Rated;
+      mreleased = details.Released;
+      mgenre = details.Genre;
+      mwriter = details.Writer;
+      mactors = details.Actors;
+      mplot = details.Plot;
+      mlanguaje = details.Languaje;
+      mawards = details.Awards;
+    
+      console.log(mlanguaje)
 
-let mtitle, myear, mrated, mreleased, mgenre, mwriter, mactors, mplot, mlanguaje, mawards;
-
-function dataMovies(details) {
-  mtitle = details.Title;
-  myear = details.Year;
-  mrated = details.Rated;
-  mreleased = details.Released;
-  mgenre = details.Genre;
-  mwriter = details.Writer;
-  mactors = details.Actors;
-  mplot = details.Plot;
-  mlanguaje = details.Languaje;
-  mawards = details.Awards;
-}
-
-function saveData() {
-  let data = {
-    title: mtitle,
-    year: myear,
-    rated: mrated,
-    released: mreleased,
-    genre: mgenre,
-    writer: mwriter,
-    actors: mactors,
-    plot: mplot,
-    languaje: mlanguaje,
-    awards: mawards
-  };
-
-  fetch('post.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-    .then(response => response.json())
-    .then(result => {
-      console.log(result);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
-
-/* document.getElementById("saveButton").addEventListener("click", saveData);
-
-function dataMovies(details){
-    let mtitle = details.Title;
-    let myear = details.Year;
-    let mrated = details.Rated;
-    let mreleased = details.Released;
-    let mgenre = details.Genre;
-    let mwriter = details.Writer;
-    let mactors = details.Actors;
-    let mplot = details.Plot;
-    let mlanguaje =details.Languaje;
-    let mawards = details.Awards;
-
-  }
-
-  document.getElementById("saveButton").addEventListener("click", saveData());
-
-  function saveData(){
-    let data = {
-        title: mtitle,
-        year: myear,
-        rated: mrated,
-        released: mreleased,
-        genre: mgenre,
-        writer: mwriter,
-        actors: mactors,
-        plot: mplot,
-        languaje: mlanguaje,
-        awards: mawards
-    };
-
-    fetch('post.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
+      let datas = {
+        mtitle,
+        myear,
+        mrated,
+        mreleased,
+        mgenre,
+        mwriter,
+        mactors,
+        mplot,
+        mlanguaje,
+        mawards
+      };
+    
+      console.log(datas);
+    
+      $.ajax({
+        url: './post.php',
+        type: 'POST',
+        data: datas,
+        success: function(response) {
+          alert('Datos guardados correctamente');
         },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log(result);
+        error: function(xhr, status, error) {
+          console.error(error);
+          alert('Error al guardar los datos de la petición.');
+        }
+      });
+    }
+    
+    }
 
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    })
-  }
- */
+
+
+

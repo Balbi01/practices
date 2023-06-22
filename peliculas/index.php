@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReelCorn</title>
             <!--íconos de font awesome-->
@@ -12,10 +12,6 @@
 
 
 <body>
-    
-
-<button id="saveButton">Guardar</button>
-
 </div>
     <div class ="wrapper">
         <!--logo-->
@@ -23,6 +19,9 @@
             <div class="container">
                <!-- <img src="./images/logo.png" alt="logo.png">-->
                 <p>Reel<span>Corn.</span></p>
+                <div class ="save-but">
+                    <button id="saveButton">Guardar</button>
+                </div>
             </div>
         </div>
         <!--fin logo-->
@@ -83,6 +82,7 @@
      <!--js de la app-->
     <script src="script.js"></script>    
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  
 </body>
 </html>

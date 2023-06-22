@@ -62,7 +62,10 @@ img{
     color: white;
     font-weight: bold;
 }
-
+.save-but{
+    color: var(--light-dark-color)
+    
+}
 .logo p span{
     color: var(--orange-color)
 }
@@ -213,6 +216,7 @@ img{
     font-weight: 300;
     font-size: 0.9rem;
 }
+
 
 @media(max-width: 450px){
     .logo p{
